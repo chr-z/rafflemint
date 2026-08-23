@@ -1,0 +1,45 @@
+{
+  "nav": { "language": "Idioma" },
+  "brand": { "tagline": "Sorteios transparentes e verificáveis." },
+  "hero": {
+    "title": "Sorteios que sua audiência confia de verdade",
+    "subtitle": "Cole a lista de participantes, escolha uma seed pública e sorteie com um algoritmo determinístico. Qualquer pessoa refaz o sorteio e chega nos mesmos vencedores. Grátis, sem cadastro."
+  },
+  "form": {
+    "heading": "Seu sorteio",
+    "title": "Nome do sorteio",
+    "titlePh": "Sorteio do teclado meca",
+    "prize": "Prêmio",
+    "prizePh": "Conjunto de keycaps custom",
+    "prizeCost": "Valor do prêmio",
+    "participants": "Participantes",
+    "participantsPh": "Um por linha:\nana\nbruno\ncarla",
+    "participantsHint": "Um por linha — ou cole uma lista separada por vírgula/ponto-e-vírgula.",
+    "winnersCount": "Vencedores",
+    "currency": "Moeda",
+    "draw": "Sortear",
+    "drawHint": "Mesma lista + mesma seed = mesmos vencedores. Para sempre.",
+    "addMe": "+ Adicionar participante",
+    "clearAll": "Limpar tudo",
+    "seed": "Seed pública",
+    "seedPh": "live-2026-08-23",
+    "shareLink": "Copiar link do sorteio",
+    "copied": "Link copiado!",
+    "saveLocal": "Salvo localmente ✓",
+    "exportJson": "Exportar JSON",
+    "importJson": "Importar JSON"
+  },
+  "result": {
+    "heading": "Resultado",
+    "seedLabel": "Seed usada",
+    "winners": "Vencedor(es)",
+    "noWinners": "Adicione participantes e sorteiie.",
+    "oddsLabel": "Chance por bilhete",
+    "verifyHint": "Qualquer pessoa cola a mesma lista + seed e reproduz exatamente este resultado.",
+    "copyResults": "Copiar prova",
+    "copiedResults": "Prova copiada!",
+    "entries": "bilhetes",
+    "poolSize": "tamanho da pool"
+  },
+  "footer": { "privacy": "Tudo fica no seu navegador. Sem contas, sem rastreamento.", "builtByPre": "Criado por" }
+}

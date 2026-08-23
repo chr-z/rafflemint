@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RaffleMint — Transparent, verifiable giveaways</title>
+  <meta name="description" content="Deterministic seeded raffles: same list + same seed = same winners, replayable by anyone. Free, no signup, PWA.">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d9488">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="112" fill="#0d9488"/><path fill="#fff" d="M256 96a160 160 0 1 1 0 320 160 160 0 0 1 0-320zm0 52a108 108 0 1 0 0 216 108 108 0 0 0 0-216zm0 56a52 52 0 1 1 0 104 52 52 0 0 1 0-104z"/><circle cx="256" cy="256" r="26" fill="#fff"/></svg>
+      RaffleMint
+    </div>
+    <label class="lang-wrap" style="margin:0">
+      <span data-i18n="nav.language">Language</span>
+      <select class="lang" id="lang-select" aria-label="Language">
+        <option value="en">English</option>
+        <option value="pt-BR">Português (BR)</option>
+      </select>
+    </label>
+  </header>
+
+  <section class="hero">
+    <h1 data-i18n="hero.title"></h1>
+    <p data-i18n="hero.subtitle"></p>
+  </section>
+
+  <main class="layout">
+    <form class="card" id="editor" onsubmit="return false">
+      <h2 data-i18n="form.heading">Your raffle</h2>
+
+      <label class="grow"><span data-i18n="form.title">Raffle name</span>
+        <input id="f-title" type="text" autocomplete="off">
+      </label>
+      <div class="row">
+        <label class="grow"><span data-i18n="form.prize">Prize</span>
+          <input id="f-prize" type="text">
+        </label>
+        <label style="max-width:150px"><span data-i18n="form.prizeCost">Prize value</span>
+          <input id="f-cost" type="text" inputmode="decimal" placeholder="49.90">
+        </label>
+        <label style="max-width:110px"><span data-i18n="form.currency">Currency</span>
+          <select id="f-currency">
+            <option value="USD">USD $</option>
+            <option value="EUR">EUR €</option>
+            <option value="GBP">GBP £</option>
+            <option value="BRL">BRL R$</option>
+            <option value="JPY">JPY ¥</option>
+          </select>
+        </label>
+      </div>
+      <label class="grow"><span data-i18n="form.participants">Participants</span>
+        <textarea id="f-participants" rows="8" placeholder="ana&#10;bruno&#10;carla"></textarea>
+        <small class="hint" data-i18n="form.participantsHint"></small>
+      </label>
+      <div class="row">
+        <label style="max-width:130px"><span data-i18n="form.winnersCount">Winners</span>
+          <input id="f-count" type="number" min="1" max="100" value="1">
+        </label>
+        <label class="grow"><span data-i18n="form.seed">Public seed</span>
+          <input id="f-seed" type="text" placeholder="my-stream-2026-08-23">
+        </label>
+      </div>
+      <p class="hint" data-i18n="form.drawHint"></p>
+
+      <div class="row" style="margin-top:14px">
+        <button type="button" class="btn" id="btn-draw">🎲 <span data-i18n="form.draw">Draw winners</span></button>
+        <button type="button" class="btn ghost" id="btn-share">🔗 <span data-i18n="form.shareLink">Copy share link</span></button>
+        <button type="button" class="btn ghost" id="btn-export"><span data-i18n="form.exportJson">Export JSON</span></button>
+        <label class="btn ghost" style="margin:0"><span data-i18n="form.importJson">Import JSON</span>
+          <input id="btn-import" type="file" accept="application/json" hidden>
+        </label>
+      </div>
+      <p><span class="save-indicator" id="save-indicator" hidden>Saved ✓</span></p>
+    </form>
+
+    <section class="card">
+      <h2 data-i18n="result.heading">Result</h2>
+      <div class="result-box" aria-live="polite">
+        <div id="rv-seed-line" class="seed-line"><span data-i18n="result.seedLabel">Seed used</span>: <code id="rv-seed">—</code></div>
+        <ol id="rv-winners" class="winners"></ol>
+        <p class="hint" id="rv-empty" data-i18n="result.noWinners">Add participants and draw.</p>
+        <div class="stats">
+          <div><span data-i18n="result.oddsLabel">Odds per entry</span> <b id="rv-odds">—</b></div>
+          <div><span data-i18n="result.poolSize">pool size</span> <b id="rv-pool">0</b></div>
+          <div><span data-i18n="form.prizeCost">Prize value</span> <b id="rv-prize">—</b></div>
+        </div>
+        <p class="hint" data-i18n="result.verifyHint"></p>
+        <button type="button" class="btn ghost" id="btn-proof">📋 <span data-i18n="result.copyResults">Copy proof</span></button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p data-i18n="footer.privacy"></p>
+    <p><span data-i18n="footer.builtByPre">Built by</span> <a href="https://github.com/chr-z">@chr-z</a> · <a href="https://github.com/chr-z/rafflemint">source</a></p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js'));
+    }
+    import('./js/i18n.js').then((i18n) => {
+      const sel = document.getElementById('lang-select');
+      sel.value = i18n.currentLanguage();
+      sel.addEventListener('change', () => i18n.setLanguage(sel.value).then(() => location.reload()));
+    });
+  </script>
+</body>
+</html>

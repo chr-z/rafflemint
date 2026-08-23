@@ -1,0 +1,13 @@
+{
+  "name": "rafflemint",
+  "version": "1.0.0",
+  "description": "Transparent, verifiable giveaways: deterministic seeded raffles anyone can replay. Free, no signup, PWA, i18n.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/",
+    "serve": "npx --yes http-server -p 8080 -c-1 ."
+  },
+  "keywords": ["raffle", "giveaway", "random-winner", "verifiable", "pwa", "i18n"],
+  "author": "chr-z",
+  "license": "MIT"
+}

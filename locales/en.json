@@ -1,0 +1,45 @@
+{
+  "nav": { "language": "Language" },
+  "brand": { "tagline": "Transparent, verifiable giveaways." },
+  "hero": {
+    "title": "Raffles your audience can actually trust",
+    "subtitle": "Paste your participant list, pick a public seed, draw winners with a deterministic algorithm. Anyone can replay the draw and get the exact same winners. Free, no signup."
+  },
+  "form": {
+    "heading": "Your raffle",
+    "title": "Raffle name",
+    "titlePh": "Mecha keyboard giveaway",
+    "prize": "Prize",
+    "prizePh": "Custom keycap set",
+    "prizeCost": "Prize value",
+    "participants": "Participants",
+    "participantsPh": "One per line:\nana\nbruno\ncarla",
+    "participantsHint": "One per line — or paste a comma/semicolon list.",
+    "winnersCount": "Winners",
+    "currency": "Currency",
+    "draw": "Draw winners",
+    "drawHint": "Same list + same seed = same winners. Forever.",
+    "addMe": "+ Add me",
+    "clearAll": "Clear all",
+    "seed": "Public seed",
+    "seedPh": "my-stream-2026-08-23",
+    "shareLink": "Copy share link",
+    "copied": "Link copied!",
+    "saveLocal": "Saved locally ✓",
+    "exportJson": "Export JSON",
+    "importJson": "Import JSON"
+  },
+  "result": {
+    "heading": "Result",
+    "seedLabel": "Seed used",
+    "winners": "Winner(s)",
+    "noWinners": "Add participants and draw.",
+    "oddsLabel": "Odds per entry",
+    "verifyHint": "Anyone can paste this same list + seed and reproduce the exact result.",
+    "copyResults": "Copy proof",
+    "copiedResults": "Proof copied!",
+    "entries": "entries",
+    "poolSize": "pool size"
+  },
+  "footer": { "privacy": "Everything stays in your browser. No accounts, no tracking.", "builtByPre": "Built by" }
+}

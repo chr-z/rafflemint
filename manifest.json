@@ -1,0 +1,16 @@
+{
+  "name": "RaffleMint — Transparent, verifiable giveaways",
+  "short_name": "RaffleMint",
+  "description": "Deterministic seeded raffles: same list + same seed = same winners, replayable by anyone. Free, no signup, PWA.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f0fdfa",
+  "theme_color": "#0d9488",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["entertainment", "productivity", "utilities"],
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
